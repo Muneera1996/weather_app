@@ -20,73 +20,77 @@ Widget forecastCard(AsyncSnapshot<WeatherForecastModel> snapshot, int index) {
         padding: const EdgeInsets.all(8.0),
         child: Text(dayOfWeek),
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          CircleAvatar(
-            radius: 33,
-            backgroundColor: Colors.white,
+      Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: Row(
 
-            child: getWeatherIcon(
-                weatherDescription: forecastList[index].weather[0].main,
-                color: Colors.pinkAccent,
-                size: 45),
-          ),
-          Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Text(
-                        "${forecastList[index].temp.min.toStringAsFixed(0)} °F"),
-                  ),
-                  Icon(
-                    FontAwesomeIcons.solidArrowAltCircleDown,
-                    color: Colors.white,
-                    size: 17,
-                  )
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            CircleAvatar(
+              radius: 33,
+              backgroundColor: Colors.white,
+
+              child: getWeatherIcon(
+                  weatherDescription: forecastList[index].weather[0].main,
+                  color: Colors.pinkAccent,
+                  size: 45),
+            ),
+            Column(
+              children: <Widget>[
+                Row(
                   children: <Widget>[
-                    Text(
-                        "${forecastList[index].temp.max.toStringAsFixed(0)} °F"),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Text(
+                          "${forecastList[index].temp.min.toStringAsFixed(0)} °F"),
+                    ),
                     Icon(
-                      FontAwesomeIcons.solidArrowAltCircleUp,
+                      FontAwesomeIcons.solidArrowAltCircleDown,
                       color: Colors.white,
                       size: 17,
                     )
                   ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                        "Hum:${forecastList[index].humidity.toStringAsFixed(0)} %"),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                          "${forecastList[index].temp.max.toStringAsFixed(0)} °F"),
+                      Icon(
+                        FontAwesomeIcons.solidArrowAltCircleUp,
+                        color: Colors.white,
+                        size: 17,
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                          "Hum:${forecastList[index].humidity.toStringAsFixed(0)} %"),
 //                     Icon(FontAwesomeIcons.solidGrinBeamSweat, color: Colors.white,
 //                       size: 17,)
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                        "Win:${forecastList[index].speed.toStringAsFixed(1)} mi/h"),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                          "Win:${forecastList[index].speed.toStringAsFixed(1)} mi/h"),
 //                     Icon(FontAwesomeIcons.wind, color: Colors.white,
 //                       size: 17,)
-                  ],
-                ),
-              )
-            ],
-          )
-        ],
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     ],
   );
